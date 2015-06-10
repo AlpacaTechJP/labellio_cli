@@ -43,10 +43,10 @@ def main(args):
 def get_parser():
     import argparse
 
-    parser = argparse.ArgumentParser("Labellio Classifier")
-    parser.add_argument("model_dir")
-    parser.add_argument("image_dir")
-    parser.add_argument("--batch-size", type=int, default=0)
+    parser = argparse.ArgumentParser(description="Labellio Classifier")
+    parser.add_argument("model_dir", help="Path to a model directory which is exported from labellio. (Please extract the archive before you use it.)")
+    parser.add_argument("image_dir", help="Path to an image directory. The directory shall not contain other than images.")
+    parser.add_argument("--batch-size", type=int, default=0, help="Batch size. (default=0: Retrieve all images at once.)")
 
     return parser
 
