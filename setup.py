@@ -1,7 +1,7 @@
 from setuptools import setup, find_packages
 
 setup(
-    name="labellio",
+    name="labellio_cli",
     version="0.0.1",
     url="", #TODO fill
     description="Labellio command line interface",
