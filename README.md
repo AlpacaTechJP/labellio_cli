@@ -1,4 +1,4 @@
-Labellio local utilities
+Labellio Command Line Interface
 ===
 
 Utility
