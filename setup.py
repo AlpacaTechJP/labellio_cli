@@ -6,11 +6,11 @@ setup(
     url="", #TODO fill
     description="Labellio command line interface",
     author="AlpacaDB, Inc.",
-    license='2-clause BSD',
+    license='MIT',
     classifiers=[
         'Development Status :: 3 - Alpha',
         'Intended Audience :: Information Technology',
-        'License :: OSI Approved :: BSD License',
+        'License :: OSI Approved :: MIT License',
         'Programming Language :: Python :: 2.7',
     ],
     keywords='deep learning caffe alpacadb alpaca db labellio',
