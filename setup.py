@@ -3,7 +3,7 @@ from setuptools import setup, find_packages
 setup(
     name="labellio_cli",
     version="0.0.1",
-    url="", #TODO fill
+    url="https://github.com/AlpacaDB/labellio_cli",
     description="Labellio command line interface",
     author="AlpacaDB, Inc.",
     license='MIT',
