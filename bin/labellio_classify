@@ -16,7 +16,7 @@ def images(image_dir):
 def exec_batch(batch, classifier, label):
     paths, data = zip(*batch)
     for i, output in enumerate(classifier.forward_iter(data)):
-        print("{0}\t{1}\t{2}".format(paths[i], label.label(output.best), output.values))
+        print("{0}\t{1}\t{2}".format(paths[i], label.label(output.best).encode("utf-8"), output.values))
 
 
 def main(args):
