@@ -29,14 +29,11 @@ class Classifier(object):
         net_input = np.zeros(self.shape, dtype=np.float32)
 
         s = 0
-        e = n_row
-        if e > data.shape[0]:
-            e = data.shape[0]
+        e = data.shape[0]
 
-        while s < data.shape[0]:
-            n_data = e - s
-            assert(n_data <= n_row)
-            net_input[:n_data, :, :, :] = data[s:e, :, :, :]
+        while s < e:
+            n_data = min(e - s, n_row)
+            net_input[:n_data, :, :, :] = data[s:s + n_data, :, :, :]
             out = self.net.forward(blobs=[self.net.outputs[0]], **{self.net.inputs[0]: net_input})[self.net.outputs[0]]
 
             assert(n_row == len(out))
@@ -44,9 +41,6 @@ class Classifier(object):
                 yield(NetOutput(out[i].flatten()))
 
             s += n_row
-            e += n_row
-            if e < data.shape[0]:
-                e = data.shape[0]
 
             net_input = np.zeros(self.shape, dtype=np.float32)
 
