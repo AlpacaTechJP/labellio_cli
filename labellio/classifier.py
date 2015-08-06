@@ -17,9 +17,9 @@ class NetOutput(object):
 
 
 class Classifier(object):
-    def __init__(self, config):
+    def __init__(self, config, **kwargs):
         self.config = config
-        self.net = Net(config)
+        self.net = Net(config, **kwargs)
         self.shape = np.array(self.config.input_shape, dtype=np.uint32)
 
     def forward_iter(self, data):

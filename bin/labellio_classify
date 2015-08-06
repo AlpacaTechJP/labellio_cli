@@ -27,7 +27,7 @@ def main(args):
     config = Config(model_dir)
     label = Label(config)
     loader = ImageLoader(config)
-    classifier = Classifier(config)
+    classifier = Classifier(config, **args.mode)
 
     batch = []
     for image in images(image_dir):
@@ -40,6 +40,17 @@ def main(args):
         exec_batch(batch, classifier, label)
 
 
+def mode_type(select):
+    if select == "auto":
+        return dict()
+    elif select == "gpu":
+        return dict(gpu=True)
+    elif select == "cpu":
+        return dict(cpu=True)
+    else:
+        raise RuntimeError("Invalid Argument")
+
+
 def get_parser():
     import argparse
 
@@ -47,6 +58,8 @@ def get_parser():
     parser.add_argument("model_dir", help="Path to a model directory which is exported from Labellio. (Please extract the archive before you use it.)")
     parser.add_argument("image_dir", help="Path to an image directory. The directory should contain only images.")
     parser.add_argument("--batch-size", type=int, default=0, help="Batch size. (default=0: Retrieve all images at once.)")
+    parser.add_argument("--mode", type=mode_type, default=mode_type("auto"),
+                        help="Calculation Mode (gpu, cpu, auto, default=auto: gpu auto-detect)")
 
     return parser
 
