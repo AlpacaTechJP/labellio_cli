@@ -35,6 +35,7 @@ def main(args):
 
         if 0 < batch_size <= len(batch):
             exec_batch(batch, classifier, label)
+            batch = []
 
     if len(batch) > 0:
         exec_batch(batch, classifier, label)
