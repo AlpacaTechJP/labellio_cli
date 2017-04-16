@@ -1,6 +1,8 @@
 Labellio Command Line Interface
 ===
 
+[![Join the chat at https://gitter.im/AlpacaDB/labellio_cli](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/AlpacaDB/labellio_cli?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+
 Example
 ---
     $ ls model
